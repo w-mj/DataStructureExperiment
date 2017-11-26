@@ -76,6 +76,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -111,6 +114,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="split.cpp" />
+    <ClCompile Include="testGraph.cpp" />
+    <ClCompile Include="testList.cpp" />
+    <ClCompile Include="testSort.cpp" />
+    <ClCompile Include="testStack.cpp" />
+    <ClCompile Include="testTree.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BiTree.h" />
+    <ClInclude Include="LinearList.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="ListGraph.h" />
+    <ClInclude Include="MatrixGraph.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="split.h" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

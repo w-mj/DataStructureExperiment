@@ -14,4 +14,53 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="split.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testStack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testTree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testGraph.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testSort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LinkedList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="split.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BiTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ListGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
