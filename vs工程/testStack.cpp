@@ -153,7 +153,10 @@ void testStack(void) {
 	string cmd;
 	vector<int> cmdN;
 	bool quit = false;
+	system("cls");
 	while (!quit) {
+		system("pause");
+		system("cls");
 		stack.print();
 		queue.print();
 		cout << "请输入操作：\n1)向栈和队列中插入元素\n2)从栈和队列中删除元素\n3)进制转换\n4)括号检测\n5)表达式求值\n0)退出程序\n";

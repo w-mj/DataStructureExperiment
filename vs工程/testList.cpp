@@ -5,7 +5,7 @@
 #include "LinearList.h"
 #include "split.h"
 
-char MENU[] = "请选择操作：\n1)插入元素\n2)删除元素\n3)查找元素\n4)反转链表\n5)合并链表\n0)退出程序\n";
+char MENU[] = "请选择操作：\n1)插入元素\n2)删除元素\n3)查找元素\n4)反转链表\n5)合并链表\n0)返回上级菜单\n";
 char INSERT_MENU[] = "请输入插入的元素和要插入的位置，不指定位置则插入到最后\n";
 char DELETE_MENU[] = "请选择删除类型和参数，用半角逗号隔开\n1)删除第一个指定值的元素\n2)删除所有指定值的元素\n3)删除指定范围的元素\n";
 char FIND_MENU[] = "请输入要查找的元素，返回这个元素在链表中第一次出现的位置\n";
@@ -20,7 +20,10 @@ void testList(void)
 	bool quit = false;
 	LinkedList<int> linkedList = LinkedList<int>(arr), newLinkedList;
 	LinearList<int> linearList = LinearList<int>(arr), newLinearList;
+	system("cls");
 	do {
+		system("pause");
+		system("cls");
 		linkedList.print();
 		linearList.print();
 		cout << MENU;

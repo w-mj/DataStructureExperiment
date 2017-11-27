@@ -8,7 +8,7 @@ vector<double> splitd(string s) {
 	stringstream ss;
 	string::iterator numBegin = s.begin();
 	string::iterator iter = s.begin();
-	while (!isdigit(*iter) && iter != s.end())
+	while (iter != s.end() && !isdigit(*iter))
 		iter++;
 	numBegin = iter;
 	for (; iter != s.end(); iter++) {
