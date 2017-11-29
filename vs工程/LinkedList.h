@@ -98,14 +98,14 @@ template<class T>
 void LinkedList<T>::insert(const T &a, int pos) {
 	int i = 0;
 	DataStruct* cursor = dataField;
-	while (i < pos && cursor->next != nullptr) {
+	while (i < pos - 1 && cursor != nullptr && cursor->next != nullptr) {
 		i += 1;
 		cursor = cursor -> next;
 	}
 	if (pos == 0)
 		dataField = new DataStruct(a, dataField);
 	else
-		cursor->next = new DataStruct(a, cursor);
+		cursor->next = new DataStruct(a, cursor -> next);
 	size += 1;
 }
 
@@ -157,7 +157,7 @@ void LinkedList<T>::remove(int pos) {
 template<class T>
 void LinkedList<T>::removeRange(T min, T max) {
 	DataStruct* cursor = dataField, *del;
-	if (cursor->data >= min && cursor->data <= max) {
+	while (cursor->data >= min && cursor->data <= max) {
 		dataField = cursor->next;
 		delete cursor;
 		cursor = dataField;

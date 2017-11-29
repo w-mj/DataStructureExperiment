@@ -14,9 +14,10 @@ void testSort(void) {
 	system("cls");
 	while (!quit) {
 		system("cls");
-		system("pause");
+		// system("pause");
 		cout << "请输入操作:\n1)输入一个数列\n2)运行快速排序\n3)运行二分查找\n0)返回上级菜单\n";
 		cin >> cmd;
+		system("cls");
 		cmdN = split(cmd);
 		if (cmdN.size() == 0)
 			continue;

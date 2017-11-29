@@ -14,7 +14,7 @@ char FIND_MENU[] = "请输入要查找的元素，返回这个元素在链表中第一次出现的位置\n";
 void testList(void)
 {
 	using namespace std;
-	vector<int> arr = { 1, 3, 5, 7, 9, 9};
+	vector<int> arr = { 1, 3, 5, 7, 9};
 	string cmd;
 	vector<int> cmdN;
 	bool quit = false;
@@ -22,13 +22,17 @@ void testList(void)
 	LinearList<int> linearList = LinearList<int>(arr), newLinearList;
 	system("cls");
 	do {
-		system("pause");
 		system("cls");
 		linkedList.print();
 		linearList.print();
 		cout << MENU;
 		getline(cin, cmd);
 		cmdN = split(cmd);
+		system("cls");
+		cout << "当前表内容为：" << endl;
+		linkedList.print();
+		linearList.print();
+		// system("pause");
 		switch (cmdN[0]) {
 		case 1:
 			puts(INSERT_MENU);
@@ -42,6 +46,10 @@ void testList(void)
 				linkedList.insert(cmdN[0], cmdN[1]);
 				linearList.insert(cmdN[0], cmdN[1]);
 			}
+			cout << "插入后元素为：" << endl;
+			linkedList.print();
+			linearList.print();
+			system("pause");
 			break;
 		case 2:
 			puts(DELETE_MENU);
@@ -70,6 +78,10 @@ void testList(void)
 				linearList.removeRange(cmdN[0], cmdN[1]);
 				break;
 			}
+			cout << "删除后的元素为：" << endl;
+			linkedList.print();
+			linearList.print();
+			system("pause");
 			break;
 		case 3:
 			puts(FIND_MENU);
@@ -77,10 +89,15 @@ void testList(void)
 			cmdN = split(cmd);
 			printf("在链表中，%d 第一次出现在%d\n", cmdN[0],linkedList.find(cmdN[0]));
 			printf("在线性表中，%d 第一次出现在%d\n", cmdN[0], linearList.find(cmdN[0]));
+			system("pause");
 			break;
 		case 4:
 			linkedList = linkedList.reverse();
 			linearList = linearList.reverse();
+			cout << "反转后的链表为" << endl;
+			linkedList.print();
+			linearList.print();
+			system("pause");
 			break;
 		case 5:
 			puts("输入新的链表");
@@ -90,6 +107,10 @@ void testList(void)
 			newLinearList = LinearList<int>(cmdN);
 			linkedList = linkedList.merge(newLinkedList);
 			linearList = linearList.merge(newLinearList);
+			cout << "合并后的表为：" << endl;
+			linkedList.print();
+			linearList.print();
+			system("pause");
 			break;
 		case 0:
 			quit = true;
