@@ -38,6 +38,7 @@ public:
 	void sort(function<int(T, T)>);
 	void sort() { sort(less<T>()); }
 	unsigned biSearch(T a);
+	void purePrint(void);
 	~LinearList();
 };
 
@@ -265,6 +266,15 @@ inline unsigned LinearList<T>::biSearch(T a)
 			return mid;
 	}
 	return size;
+}
+
+template<class T>
+inline void LinearList<T>::purePrint(void)
+{
+	for (int i = 0; i < size; i++) {
+		std::cout << data[i] << " ";
+	}
+	std::cout << std::endl;
 }
 
 template<class T>

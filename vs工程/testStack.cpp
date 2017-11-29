@@ -153,9 +153,7 @@ void testStack(void) {
 	string cmd;
 	vector<int> cmdN;
 	bool quit = false;
-	system("cls");
 	while (!quit) {
-		system("pause");
 		system("cls");
 		stack.print();
 		queue.print();
@@ -164,6 +162,7 @@ void testStack(void) {
 		cmdN = split(cmd);
 		if (cmdN.size() != 1)
 			continue;
+		system("cls");
 		switch (cmdN[0]) {
 		case 1:
 			cout << "请输入要插入的元素\n";
@@ -171,16 +170,25 @@ void testStack(void) {
 			cmdN = split(cmd);
 			stack.push(cmdN[0]);
 			queue.push(cmdN[0]);
+			cout << "插入后的栈和队列为：" << endl;
+			stack.print();
+			queue.print();
+			system("pause");
 			break;
 		case 2:
 			stack.pop();
 			queue.pop();
+			cout << "删除后的元素为" << endl;
+			stack.print();
+			queue.print();
+			system("pause");
 			break;
 		case 3:
 			cout << "把m进制的数x转化成n进制，分别输入x m n\n";
 			getline(cin, cmd);
 			cmdN = split(cmd);
-			cout << hexadecimalConversion(cmd, cmdN[0], cmdN[1]) << endl;
+			cout << hexadecimalConversion(cmd, cmdN[1], cmdN[2]) << endl;
+			system("pause");
 			break;
 		case 4:
 			cout << "输入表达式\n";
@@ -189,11 +197,13 @@ void testStack(void) {
 				cout << "括号匹配\n";
 			else
 				cout << "括号不匹配\n";
+			system("pause");
 			break;
 		case 5:
 			cout << "输入表达式\n";
 			getline(cin, cmd);
 			cout << "ans=" << getAns(cmd) << endl;
+			system("pause");
 			break;
 		case 0:
 			quit = true;

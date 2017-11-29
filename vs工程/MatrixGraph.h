@@ -26,7 +26,7 @@ public:
 	std::vector<unsigned> getDegree();
 	bool findPathDFS(unsigned s, unsigned e);
 	bool findPathBFS(unsigned s, unsigned e);
-	void Dijkstra(unsigned s);
+	std::vector<unsigned> Dijkstra(unsigned s, unsigned e, int &length);
 	void print(void);
 };
 
@@ -180,10 +180,11 @@ inline bool MatrixGraph::findPathBFS(unsigned s, unsigned e)
 	return false;
 }
 
-inline void MatrixGraph::Dijkstra(unsigned s)
+std::vector<unsigned> MatrixGraph::Dijkstra(unsigned s, unsigned e, int &ll)
 {
 	using namespace std;
-	std::vector<pair<unsigned, unsigned>> result;
+	vector<unsigned> result;
+	result.resize(MAX_VERTEX_NUM);
 	unsigned length[MAX_VERTEX_NUM] = { 0 };
 	unsigned pre[MAX_VERTEX_NUM] = { 0 };
 	bool visited[MAX_VERTEX_NUM] = { 0 };
@@ -209,11 +210,14 @@ inline void MatrixGraph::Dijkstra(unsigned s)
 			list.insert(j);
 		}
 	}
-	result.push_back(make_pair(s, 0));
 	for (int i = 0; i < MAX_VERTEX_NUM; i++) {
-		if (length[i] != 0 || i == s)
-			std::cout << i << "  " << pre[i] << "  " << length[i] << std::endl;
+		if (length[i] != 0 || i == s) {
+			// std::cout << i << "  " << pre[i] << "  " << length[i] << std::endl;
+			result[i] = pre[i];
+		}
 	}
+	ll = length[e];
+	return result;
 }
 
 void MatrixGraph::print(void) {

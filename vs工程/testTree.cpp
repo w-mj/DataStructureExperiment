@@ -87,6 +87,7 @@ vector<ItemNode> makeHuffmanCode(ifstream &file) {
 		[](const pair<string, unsigned> a, const pair<string, unsigned> b) {return a.second > b.second; });
 	int listI = 0;
 	unsigned bytes = 0;
+	printf("%-10s%-10s%-10s%-10s\n", "ASCII", "字符", "出现次数", "Huffman编码");
 	for (auto x : tab) {
 		unsigned n = x.second;
 		for (int i = 0; i < 128; i++) {
@@ -190,6 +191,7 @@ void testTree(void)
 		system("cls");
 		cout << "请选择操作\n1)测试二叉树\n2)Huffman编码\n0)返回上级菜单\n";
 		cin >> cmd;
+		system("cls");
 		cmdN = split(cmd);
 		if (cmdN[0] == 1) {
 			cout << "请按先序次序输入二叉树中结点的值，/表示值为空" << endl;
