@@ -1,8 +1,4 @@
-void testList(void);
-void testStack(void);
-void testTree(void);
 void testGraph(void);
-void testSort(void);
 
 #include <iostream>
 #include <string>
@@ -23,19 +19,19 @@ int main(void) {
 			continue;
 		switch (cmdN[0]) {
 		case 1:
-			testList();
+			//testList();
 			break;
 		case 2:
-			testStack();
+			//testStack();
 			break;
 		case 3:
-			testTree();
+			//testTree();
 			break;
 		case 4:
 			testGraph();
 			break;
 		case 5:
-			testSort();
+			//testSort();
 			break;
 		case 0:
 			quit = true;

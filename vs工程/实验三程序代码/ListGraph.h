@@ -3,31 +3,31 @@
 #include "MatrixGraph.h"
 class ListGraph {
 private:
-	struct Edge { // 边结构体
-		unsigned toVertex;  // 边的后继点
-		bool isDouble;  // 是否为双向边
-		unsigned weight;  // 权重
-		Edge(unsigned to, unsigned w = 1, bool dou = false) :  // 构造函数
+	struct Edge {
+		unsigned toVertex;
+		bool isDouble;
+		unsigned weight;
+		Edge(unsigned to, unsigned w = 1, bool dou = false) :
 			toVertex(to), weight(w), isDouble(dou) {}
 	};
-	struct Vertex {  // 点结构体
-		LinkedList<Edge*> edgeList;  // 边的链表（使用实验一中的链表实现）
-		unsigned weight;  // 权重
-		unsigned number;  // 点编号
-		Vertex(unsigned num, unsigned w = 1) : number(num), weight(w) {}  // 初始化
+	struct Vertex {
+		LinkedList<Edge*> edgeList;
+		unsigned weight;
+		unsigned number;
+		Vertex(unsigned num, unsigned w = 1) : number(num), weight(w) {}
 	};
-	LinkedList<Vertex*> vertexList;  // 点链表
-	unsigned vertexNum = 0;  // 点数目
-	unsigned edgeNum = 0;  // 边数目
+	LinkedList<Vertex*> vertexList;
+	unsigned vertexNum = 0;
+	unsigned edgeNum = 0;
 public:
-	void addVertex(unsigned num, unsigned w = 1);  // 添加点
-	void addEdge(unsigned s, unsigned e, unsigned w = 1, bool dou = false);  // 添加边
-	void addDoubleEdge(unsigned s, unsigned e, unsigned w = 1) {  // 添加双向边
+	void addVertex(unsigned num, unsigned w = 1);
+	void addEdge(unsigned s, unsigned e, unsigned w = 1, bool dou = false);
+	void addDoubleEdge(unsigned s, unsigned e, unsigned w = 1) {
 		addEdge(s, e, w, true);
 	}
-	void removeVertex(unsigned n);  // 删除点
-	void removeEdge(unsigned s, unsigned e);  // 删除边
-	void print(void);  // 打印图
+	void removeVertex(unsigned n);
+	void removeEdge(unsigned s, unsigned e);
+	void print(void);
 };
 
 void ListGraph::addVertex(unsigned num, unsigned w) {

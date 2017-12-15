@@ -3,41 +3,41 @@
 #include "Stack.h"
 #include <functional>
 #include <algorithm>
-template<class T> // 泛型
+template<class T>
 class BiTree {
 private:
-	struct BiTreeNode { // 使用二叉链表实现二叉树
-		BiTreeNode *left, *right;   // 二叉链表的左右指针
-		T data;  // 数据节点
-		BiTreeNode(T d) : data(d), left(nullptr), right(nullptr) {}  // 构造一个二叉链表的节点
-		BiTreeNode(const BiTreeNode& n1, const BiTreeNode& n2);  // 利用两个节点，生成他们的父节点（用于Huffman）
-		BiTreeNode(const BiTreeNode& another);  // 复制构造函数
-		~BiTreeNode();  // 析构函数
-		unsigned height(void);  // 树高的递归函数体
-		void postOrder(std::function<void(T)> f);  // 后序遍历的递归函数体
-		vector<pair<string, unsigned>> huffman(string last);  // Huffman编码的递归函数体
+	struct BiTreeNode {
+		BiTreeNode *left, *right;
+		T data;
+		BiTreeNode(T d) : data(d), left(nullptr), right(nullptr) {}
+		BiTreeNode(const BiTreeNode& n1, const BiTreeNode n2);
+		BiTreeNode(const BiTreeNode& another);
+		~BiTreeNode();
+		unsigned height(void);
+		void postOrder(std::function<void(T)> f);
+		vector<pair<string, unsigned>> huffman(string last);
 	};
-	BiTreeNode* tree;  // 树本体
-	unsigned int height;  // 树高
-	unsigned int numOfNodes;  // 节点数目
+	BiTreeNode* tree;
+	unsigned int height;
+	unsigned int numOfNodes;
 public:
-	BiTree() : tree(nullptr), height(0), numOfNodes(0) {}  // 构造函数，生成空树
-	BiTree(std::string preOrder);  // 按照先序遍历生成二叉树
-	BiTree(const BiTree& another); // 复制构造函数
-	BiTree(const T& a) : tree(new BiTreeNode(a)), height(1), numOfNodes(1) {}  // 生成只有一个元素的树
-	BiTree(const BiTree<T>& t1, const BiTree<T>& t2);  // 利用两个节点，生成他们的父节点（用于Huffman
-	~BiTree(); // 析构函数
-	void preOrder(std::function<void(T)> f);  // 前序遍历，按照前序顺序对每一个元素调用f函数
-	void inOrder(std::function<void(T)> f);  // 中序遍历
-	void postOrder(std::function<void(T)> f);  // 后序遍历
-	void lavelOrder(std::function<void(T)> f);  // 层次遍历
-	T rootNode(void) { return tree->data; }  // 返回树根节点的值
-	unsigned getHeight(void) { return tree -> height(); }  // 获得树高
-	unsigned getNumOfNodes(void) { return numOfNodes; }  // 获得节点数数量
-	BiTree<T> operator=(const BiTree<T>& another);  // 重载=号，作用与复制构造函数类似
-	void addLeaves(std::string s, T d);  // 按照字符串添加树叶（用于Huffman解码）
+	BiTree() : tree(nullptr), height(0), numOfNodes(0) {}
+	BiTree(std::string preOrder);
+	BiTree(const BiTree& another);
+	BiTree(const T& a) : tree(new BiTreeNode(a)), height(1), numOfNodes(1) {}
+	BiTree(const BiTree<T>& t1, const BiTree<T>& t2);
+	~BiTree();
+	void preOrder(std::function<void(T)> f);
+	void inOrder(std::function<void(T)> f);
+	void postOrder(std::function<void(T)> f);
+	void lavelOrder(std::function<void(T)> f);
+	T rootNode(void) { return tree->data; }
+	unsigned getHeight(void) { return tree -> height(); }
+	unsigned getNumOfNodes(void) { return numOfNodes; }
+	BiTree<T> operator=(const BiTree<T>& another);
+	void addLeaves(std::string s, T d);
 	string parseHuffman(unsigned char* binList, unsigned lenght);
-	vector < pair < string, unsigned>> huffmanOrder(void);  // 返回树的Huffman编码
+	vector < pair < string, unsigned>> huffmanOrder(void);
 };
 
 template<class T>
@@ -214,7 +214,7 @@ inline vector<pair<string, unsigned>> BiTree<T>::huffmanOrder(void)
 
 
 template<class T>
-inline BiTree<T>::BiTreeNode::BiTreeNode(const BiTreeNode & n1, const BiTreeNode& n2)
+inline BiTree<T>::BiTreeNode::BiTreeNode(const BiTreeNode & n1, const BiTreeNode n2)
 {
 	data = n1.data + n2.data;
 	left = new BiTreeNode(n1);

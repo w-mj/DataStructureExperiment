@@ -8,26 +8,26 @@
 #include "Stack.h"
 #include "Queue.h"
 #define MAX_VERTEX_NUM 100
-class MatrixGraph { // 邻接矩阵图
+class MatrixGraph {
 private:
-	unsigned vertexWeight[MAX_VERTEX_NUM] = { 0 };  // 点权
-	unsigned edgeWeight[MAX_VERTEX_NUM][MAX_VERTEX_NUM] = { 0 };  // 边权
-	unsigned vertexNum = 0;  // 点数目
-	unsigned edgeNum = 0;  // 边数目
+	unsigned vertexWeight[MAX_VERTEX_NUM] = { 0 };
+	unsigned edgeWeight[MAX_VERTEX_NUM][MAX_VERTEX_NUM] = { 0 };
+	unsigned vertexNum = 0;
+	unsigned edgeNum = 0;
 public:
-
-	MatrixGraph(const MatrixGraph& a);  // 复制构造函数
-	MatrixGraph() = default;  // 默认构造函数
-	void addVertex(unsigned n, unsigned weight = 1);  // 添加点
-	void addEdge(unsigned s, unsigned e, unsigned weight = 1);  // 添加边
-	void addDoubleEdge(unsigned s, unsigned e, unsigned weight = 1);  // 添加双向边
-	std::vector<unsigned> AOV() const;  // AOV排序
-	std::vector<unsigned> AOE() const;  // AOE路径
-	std::vector<unsigned> getDegree();  // 获得每一个节点的度
-	bool findPathDFS(unsigned s, unsigned e);  // 利用DFS判断s和e之间是否存在通路
-	bool findPathBFS(unsigned s, unsigned e);  // 利用BFS判断s和e之间是否存在通路
-	std::vector<unsigned> Dijkstra(unsigned s, unsigned e, int &length);  // Dijkstra求s和e之间的最短路径
-	void print(void);  // 打印
+	friend ListGraph;
+	MatrixGraph(const MatrixGraph& a);
+	MatrixGraph() = default;
+	void addVertex(unsigned n, unsigned weight = 1);
+	void addEdge(unsigned s, unsigned e, unsigned weight = 1);
+	void addDoubleEdge(unsigned s, unsigned e, unsigned weight = 1);
+	std::vector<unsigned> AOV() const;
+	std::vector<unsigned> AOE() const;
+	std::vector<unsigned> getDegree();
+	bool findPathDFS(unsigned s, unsigned e);
+	bool findPathBFS(unsigned s, unsigned e);
+	std::vector<unsigned> Dijkstra(unsigned s, unsigned e, int &length);
+	void print(void);
 };
 
 inline MatrixGraph::MatrixGraph(const MatrixGraph & a) {

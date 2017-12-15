@@ -4,42 +4,42 @@
 #include <functional>
 using namespace std;
 
-template<class T>  // 使用泛型
+template<class T>
 class LinkedList
 {
 protected:
 	unsigned int size;
-	struct DataStruct {  // 用一个内部结构体保存数据和连接指针 
-		T data;  // 数据
-		DataStruct *next;  // 指向下一个的指针
+	struct DataStruct {
+		T data;
+		DataStruct *next;
 	public:
-		DataStruct(const T &a) : data(a), next(nullptr) {}  // 生成并初始化一个链表节点
-		DataStruct(const T &a, DataStruct* const nextp)  // 生成一个带next指针的链表节点（用于链表插入）
+		DataStruct(const T &a) : data(a), next(nullptr) {}
+		DataStruct(const T &a, DataStruct* const nextp)
 			: data(a), next(nextp) {}
 	};
 	DataStruct *dataField;
 public:
-	LinkedList();  // 构造函数
-	LinkedList(const std::vector<T>& arr);  // 用一个数组初始化链表
-	LinkedList(const LinkedList<T>& another);  // 复制构造函数
-	LinkedList<T>& operator= (const LinkedList<T>& another);  // 重载=号，与复制构造函数作用类似
-	void insert(const T &a);  // 在链表尾部插入元素
-	void insert(const T &a,int pos);  // 在指定位置插入元素
-	void removeFirst(const T &a);  // 移除第一个给定的元素
-	void removeAll(const T &a);  // 移除所有给定的元素
-	void remove(int pos);  // 移除指定位置的元素
-	void removeRange(T min, T max);  // 移除一个范围内的所有元素（要求元素类型重载了<号）
-	void clear(void);  // 清空链表
-	const T at(unsigned int pos);  // 返回第pos个元素的复制
-	T& operator[] (unsigned int pos);  // 重载[]，返回第pos个元素的引用
-	void print();  // 打印链表，方便调试
-	LinkedList reverse();  // 反转链表，返回一个反转后的链表，原链表不变
-	unsigned int find(const T &a);  // 找到第一个值为a的元素（要求元素类型重载了==号）
-	unsigned int find(function<bool (T)> fun);  // 找到满足fun(a)=true的第一个a
-	LinkedList merge(const LinkedList& another);  // 将两个链表合并
-	bool empty(void) { return size == 0; }  // 判断是否为空
-	unsigned int length(void) { return size; }  // 链表的长度
-	~LinkedList();  // 析构函数
+	LinkedList();
+	LinkedList(const std::vector<T>& arr);
+	LinkedList(const LinkedList<T>& another);
+	LinkedList<T>& operator= (const LinkedList<T>& another);
+	void insert(const T &a);
+	void insert(const T &a,int pos);
+	void removeFirst(const T &a);
+	void removeAll(const T &a);
+	void remove(int pos);
+	void removeRange(T min, T max);
+	void clear(void);
+	const T at(unsigned int pos);
+	T& operator[] (unsigned int pos);
+	void print();
+	LinkedList reverse();
+	unsigned int find(const T &a);
+	unsigned int find(function<bool (T)> fun);
+	LinkedList merge(const LinkedList& another);
+	bool empty(void) { return size == 0; }
+	unsigned int length(void) { return size; }
+	~LinkedList();
 };
 
 template<class T>

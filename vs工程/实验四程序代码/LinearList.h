@@ -6,40 +6,40 @@
 #include <algorithm>
 
 using namespace std;
-template<class T>  // 泛型
+template<class T>
 class LinearList
 {
 private:
-	unsigned int size;  // 当前元素数目
-	unsigned int maxSize;  // 最大元素数目
-	T *data;  // 保存数组的指针
-	void expend(void);  // 扩容，当元素已满时可以自动扩容。
-	void qsort(T*data, int s, int e, function<int (T, T)>);  // 快速排序的内部递归调用函数
+	unsigned int size;
+	unsigned int maxSize;
+	T *data;
+	void expend(void);
+	void qsort(T*data, int s, int e, function<int (T, T)>);
 public:
-	LinearList();  // 构造函数
-	LinearList(const std::vector<T>& arr);  // 用一个数组来初始化列表
-	LinearList(const LinearList<T>& another);  //复制构造函数
-	LinearList<T>& operator=(const LinearList<T>& another);  // 重载=号，作用与复制构造函数类似
-	void insert(const T & a);  // 在末尾插入
-	void insert(const T & a, int pos);  // 在指定位置插入
-	void removeFirst(const T & a);  // 删除第一个指定的元素
-	void removeAll(const T & a);  // 删除所有指定的元素
-	void removeRange(T min, T max);  // 删除指定范围的元素怒
-	void remove(const unsigned pos);  // 删除指定位置的元素
-	int find(const T & a);  // 找到第一个指定的元素（顺序查找）
-	unsigned length() { return size; }  // 线性表长度
-	void print(void);  // 打印线性表，方便调试
-	LinearList<T> merge(const LinearList<T> & another) const;  // 合并线性表，返回合并后的线性表
-	LinearList<T> reverse(void) const;  // 反转表，返回反转后的线性表
-	const T at(unsigned int pos) const; // 返回指定位置的值
-	T& operator[](int pos);  // 返回指定位置的引用 
-	bool empty() { return size == 0; } // 是否为空
-	unsigned minPos();  //找到最小值的位置
-	void sort(function<int(T, T)>);  // 快速排序，按照给定的函数顺序排序
-	void sort() { sort(less<T>()); }  // 快速排序的一个重载，按照小于号排序
-	unsigned biSearch(T a);  // 二分查找
-	// void purePrint(void);  //
-	~LinearList(); // 析构函数
+	LinearList();
+	LinearList(const std::vector<T>& arr);
+	LinearList(const LinearList<T>& another);
+	LinearList<T>& operator=(const LinearList<T>& another);
+	void insert(const T & a);
+	void insert(const T & a, int pos);
+	void removeFirst(const T & a);
+	void removeAll(const T & a);
+	void removeRange(T min, T max);
+	void remove(const unsigned pos);
+	int find(const T & a);
+	unsigned length() { return size; }
+	void print(void);
+	LinearList<T> merge(const LinearList<T> & another);
+	LinearList<T> reverse(void);
+	const T at(unsigned int pos) const;
+	T& operator[](int pos);
+	bool empty() { return size == 0; }
+	unsigned minPos();
+	void sort(function<int(T, T)>);
+	void sort() { sort(less<T>()); }
+	unsigned biSearch(T a);
+	void purePrint(void);
+	~LinearList();
 };
 
 template<class T>
@@ -189,7 +189,7 @@ void LinearList<T>::print(void) {
 }
 
 template<class T>
-LinearList<T> LinearList<T>::merge(const LinearList<T> & another)const  {
+LinearList<T> LinearList<T>::merge(const LinearList<T> & another) {
 	LinearList<T> result;
 	unsigned int i = 0, j = 0;
 	while (i < size && j < another.size)
@@ -205,7 +205,7 @@ LinearList<T> LinearList<T>::merge(const LinearList<T> & another)const  {
 }
 
 template<class T>
-LinearList<T> LinearList<T>::reverse(void)const {
+LinearList<T> LinearList<T>::reverse(void) {
 	LinearList<T> result;
 	for (int i = size - 1; i >= 0; i--)
 		result.insert(at(i));
